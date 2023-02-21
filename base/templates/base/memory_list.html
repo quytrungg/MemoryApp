@@ -1,0 +1,18 @@
+<h1>My Memories</h1>
+
+<table>
+    <tr>
+        <th>Memories Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for memory in memories %}
+    <tr>
+        <td>{{memory.memory_name}}</td>
+        <td><a href="{% url 'memory' memory.id %}">View</a></td>
+    </tr>
+    {% empty %}
+    <h3>You have no memories</h3>
+    {% endfor %}
+</table>
