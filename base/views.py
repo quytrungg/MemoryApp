@@ -18,26 +18,26 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy('memories')
 
-class MemoryList(ListView):
+class MemoryList(LoginRequiredMixin, ListView):
     model = Memory
     context_object_name = 'memories'
 
-class MemoryDetail(DetailView):
+class MemoryDetail(LoginRequiredMixin, DetailView):
     model = Memory
     context_object_name = 'memory'
     template_name = 'base/memory.html'
 
-class MemoryCreate(CreateView):
+class MemoryCreate(LoginRequiredMixin, CreateView):
     model = Memory
     fields = ['place', 'memory_name', 'description', 'complete']
     success_url = reverse_lazy('memories')
 
-class MemoryUpdate(UpdateView):
+class MemoryUpdate(LoginRequiredMixin, UpdateView):
     model = Memory
     fields = ['place', 'memory_name', 'description', 'complete']
     success_url = reverse_lazy('memories')
 
-class MemoryDelete(DeleteView):
+class MemoryDelete(LoginRequiredMixin, DeleteView):
     model = Memory
     context_object_name = 'memory'
     success_url = reverse_lazy('memories')
