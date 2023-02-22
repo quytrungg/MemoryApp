@@ -11,8 +11,8 @@
     {% for memory in memories %}
     <tr>
         <td>{{memory.memory_name}}</td>
-        <td><a href="{% url 'memory' memory.id %}">View</a></td>
         <td><a href="{% url 'memory-update' memory.id %}">Edit</a></td>
+        <td><a href="{% url 'memory-delete' memory.id %}">Delete</a></td>
     </tr>
     {% empty %}
     <h3>You have no memories</h3>

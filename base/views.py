@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 from .models import Memory
@@ -24,4 +26,9 @@ class MemoryCreate(CreateView):
 class MemoryUpdate(UpdateView):
     model = Memory
     fields = ['place', 'memory_name', 'description', 'complete']
+    success_url = reverse_lazy('memories')
+
+class MemoryDelete(DeleteView):
+    model = Memory
+    context_object_name = 'memory'
     success_url = reverse_lazy('memories')
