@@ -36,9 +36,9 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        backend = FacebookOAuth2(self.request)
-        token = backend.get_access_token(self.request.GET.get('code'))
-        print('abc', token)
+        # backend = FacebookOAuth2(self.request)
+        # token = backend.get_access_token(self.request.GET.get('code'))
+        # print('abc', token)
         return reverse_lazy('memories')
 
 class MemoryList(LoginRequiredMixin, ListView):
@@ -59,7 +59,7 @@ class MemoryDetail(LoginRequiredMixin, DetailView):
 
 class MemoryCreate(LoginRequiredMixin, CreateView):
     model = Memory
-    fields = ['place', 'memory_name', 'description', 'complete']
+    fields = ['place', 'location', 'memory_name', 'description', 'complete']
     success_url = reverse_lazy('memories')
 
     def form_valid(self, form):

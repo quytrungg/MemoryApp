@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "base.apps.BaseConfig",
     "social_django",
+    "mapbox_location_field",
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MAPBOX_KEY = "pk.eyJ1IjoicXV5dHJ1bmdnIiwiYSI6ImNsZWd1dGIxZjE0bGkzcm8wcTJvbzQweTMifQ.jwiPk8I9uuzriDVDK44iew"
+
+MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicXV5dHJ1bmdnIiwiYSI6ImNsZWd1dGIxZjE0bGkzcm8wcTJvbzQweTMifQ.jwiPk8I9uuzriDVDK44iew"
 
 # social app custom settings
 AUTHENTICATION_BACKENDS = [
